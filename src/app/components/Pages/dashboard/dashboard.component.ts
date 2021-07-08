@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NotesService} from '../../../services/NotesService/notes.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,14 +6,10 @@ import {NotesService} from '../../../services/NotesService/notes.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(private NotesService: NotesService) { }
+  showFiller = false;
+  constructor() { }
 
   ngOnInit(): void {
-
-    this.NotesService.GetActiveNotes().subscribe(
-      (response: any) => {
-      console.log(response);
-    });
   }
+
 }

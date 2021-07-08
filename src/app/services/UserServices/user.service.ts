@@ -10,22 +10,22 @@ export class UserService {
 
   registerUser(data: any){
     
-    return this.httpService.post('Account/RegisterUser', data, null);
+    return this.httpService.post('api/Account/Register', data, null);
   }
 
   login(data: any){
 
-    return this.httpService.post('Account/Login', data, null);
+    return this.httpService.post('api/Account/Login', data, null);
   }
 
   resetPassword(data: any){
     let headers = new HttpHeaders()
     .set('Authorization', 'Bearer '+localStorage.getItem('FunDooNotesJWT'));  
     let options = { headers: headers };
-    return this.httpService.post('Account/ResetPassword', data, options );
+    return this.httpService.post('api/Account/Reset Password', data, options );
   }
 
   ForgetPassword(data: any){
-    return this.httpService.post('Account/ForgetPassword', data, null );
+    return this.httpService.post('api/Account/Forget Password', data, null );
   }
 }

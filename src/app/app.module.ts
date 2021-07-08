@@ -18,7 +18,10 @@ import { ResetPasswordComponent } from './components/Pages/reset-password/reset-
 import { ForgetPasswordComponent } from './components/Pages/forget-password/forget-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { DashboardComponent } from './components/Pages/dashboard/dashboard.component';
+//import{MatSidenavModule} from '@angular/material';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 //import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -31,6 +34,7 @@ import { DashboardComponent } from './components/Pages/dashboard/dashboard.compo
     ResetPasswordComponent,
     ForgetPasswordComponent,
     DashboardComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { DashboardComponent } from './components/Pages/dashboard/dashboard.compo
     MatButtonModule,
     MatToolbarModule,
     HttpClientModule,
-    MatSnackBarModule  
+    MatSnackBarModule ,
+   // MatSidenavModule 
+   MatSidenavModule
     //  ErrorStateMatcher
   ],
   providers: [],

@@ -6,18 +6,15 @@ import { ForgetPasswordComponent } from './components/Pages/forget-password/forg
 import { ResetPasswordComponent } from './components/Pages/reset-password/reset-password.component';
 import { DashboardComponent } from './components/Pages/dashboard/dashboard.component';
 
+
+
 const routes: Routes = [
   {
-    path: 'signup', component: SignupComponent, pathMatch: 'full'
-  },
-  { path : 'login', component: LoginComponent, pathMatch: 'full', },
+    path: 'signup', component: SignupComponent },
+  { path : 'login', component: LoginComponent },
   { path : 'ForgetPassword', component: ForgetPasswordComponent},
-  { path : 'ResetPassword/:token', component: ResetPasswordComponent},
-  
-  {
-    path: 'Dashboard', component: DashboardComponent
-  },
-  
+  { path : 'ResetPassword', component: ResetPasswordComponent},  
+  { path : 'dashboard',component:DashboardComponent}  
 ];
 
 @NgModule({
@@ -25,6 +22,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  snapshot: any; 
+  
 
 }

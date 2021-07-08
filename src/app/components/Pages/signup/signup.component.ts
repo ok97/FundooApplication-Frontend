@@ -5,6 +5,7 @@ import { ErrorStateMatcher, } from '@angular/material/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {    MatSnackBarConfig} from '@angular/material/snack-bar';
 
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const invalidCtrl = !! (control && control.invalid && control.parent?.dirty);
@@ -43,15 +44,15 @@ export class SignupComponent implements OnInit {
     
     this.registerForm = this.formBuilder.group(
       {
-        firstName: new FormControl('', [Validators.required,
-           Validators.pattern('^[A-Z][a-z]{2,}$')
+        firstName: new FormControl('', [Validators.required
+           
           ] ,), 
-        lastName: new FormControl('', [Validators.required, 
-          Validators.pattern('^[A-Z][a-z]{2,}$')
+        lastName: new FormControl('', [Validators.required
         ],),
         email: new FormControl('', [Validators.required
         ]),
-        password:  new FormControl('', [Validators.required]),
+        password:  new FormControl('', [Validators.required
+        ]),
         confirmPassword:  new FormControl('', [Validators.required
         ])
       },

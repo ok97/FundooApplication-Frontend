@@ -27,8 +27,7 @@ export class ForgetPasswordComponent implements OnInit {
     public snackBar: MatSnackBar, private route: Router) { 
     this.ForgetForm = this.formBuilder.group(
       {
-        email: new FormControl('', [Validators.required, 
-          Validators.pattern('^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*$')
+        email: new FormControl('', [Validators.required
         ])
       }
     );   

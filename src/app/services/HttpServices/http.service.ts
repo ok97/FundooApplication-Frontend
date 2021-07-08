@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  BaseUrl = environment.BaseUrl;
+  BaseUrl = 'https://localhost:44360/';
   constructor(private http: HttpClient) { }
 
   post(url: any, data : any, headers: any)

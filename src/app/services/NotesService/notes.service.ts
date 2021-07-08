@@ -9,10 +9,5 @@ export class NotesService {
 
   constructor(private httpService : HttpService) { }
 
-  GetActiveNotes(){
-    let headers = new HttpHeaders()
-    .set('Authorization', 'Bearer '+localStorage.getItem('FunDooNotesJWT')); 
-    let options = { headers: headers };
-    return this.httpService.Get('Notes', options)
-  }
+ 
 }
