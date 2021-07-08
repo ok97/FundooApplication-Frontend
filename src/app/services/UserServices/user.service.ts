@@ -8,12 +8,14 @@ export class UserService {
 
   constructor(private httpService : HttpService) { }
 
-  registerUser(data: any){
+  registerUser(data: any)
+  {
     
     return this.httpService.post('api/Account/Register', data, null);
   }
 
-  login(data: any){
+  login(data: any)
+  {
 
     return this.httpService.post('api/Account/Login', data, null);
   }

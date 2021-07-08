@@ -4,20 +4,16 @@ import {FormBuilder, FormGroup, FormControl, Validators,} from '@angular/forms';
 import {UserService} from '../../../services/UserServices/user.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import {
-  MatSnackBarConfig,
-MatSnackBarHorizontalPosition,
-MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import {  MatSnackBarConfig,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-
+ // encapsulation: 
 })
-export class LoginComponent implements OnInit 
-{
+export class LoginComponent implements OnInit {
 
   public isActive: boolean;
   loginForm:FormGroup
@@ -29,8 +25,7 @@ export class LoginComponent implements OnInit
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   constructor(private formBuilder:FormBuilder, private userSevice:UserService,
-    public snackBar: MatSnackBar, private route: Router) 
-    { 
+    public snackBar: MatSnackBar, private route: Router) { 
     this.loginForm = this.formBuilder.group(
       {
         email: new FormControl('', [Validators.required]),
@@ -38,15 +33,12 @@ export class LoginComponent implements OnInit
     );   
     this.isActive = true;
   } 
-  ngOnInit(): void 
-  {
+  ngOnInit(): void {
   }
-  TogglePassword()
-  {
+  TogglePassword(){
     this.isActive = this.isActive ? false : true 
   }
-  openSnackBar(message: string, duration: number) 
-  {
+  openSnackBar(message: string, duration: number) {
     let config = new MatSnackBarConfig();
     if (duration != 0)
     {
@@ -55,8 +47,7 @@ export class LoginComponent implements OnInit
     this.snackBar.open(message, undefined, config);
   }
 
-  login()
-  {
+  login(){
 
     if(this.loginForm.valid){
       this.openSnackBar('Login in...', 0);
@@ -68,23 +59,21 @@ export class LoginComponent implements OnInit
         (response: any) => {
           localStorage.setItem('FunDooNotesJWT', response['token']);
           this.openSnackBar('Login success', 2000);
-          this.route.navigate(['Dashboard']);
+          
         },
         error => {
-          try 
-          {
-            if(error['status'] == 0)
-            {
+          try {
+            if(error['status'] == 0){
               this.openSnackBar('Login failed: server offline', 2000,);
             }
             else{
-              this.openSnackBar('Login failed: '+ error['error']['message'], 2000,);
+              this.openSnackBar('Login failed: '+error['error']['message'], 2000);
             }
-            } catch (error) 
-            {
-
+            } 
+            catch (error) {
           }
         });
     } 
   }
 }
+
