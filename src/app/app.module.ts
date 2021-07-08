@@ -25,6 +25,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 
 //import { ErrorStateMatcher } from '@angular/material/core';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -52,8 +56,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     HttpClientModule,
     MatSnackBarModule ,
    // MatSidenavModule 
-   MatSidenavModule
+   MatSidenavModule,
     //  ErrorStateMatcher
+
+    FlexLayoutModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

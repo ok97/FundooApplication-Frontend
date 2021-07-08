@@ -11,5 +11,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logout() {
+    // this.utility.displayMessage("Logout successfully")
+    // localStorage.removeItem('Token')
+    // localStorage.removeItem('EmployeeFirstName')
+     localStorage.removeItem('Email')
+    // this.route.navigate(['login'])
+  }
 }

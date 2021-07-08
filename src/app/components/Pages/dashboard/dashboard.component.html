@@ -1,23 +1,64 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+  rel="stylesheet">
+<div fxLayout="row">
+    <mat-toolbar class="header">
+        <button >
+      <mat-icon>menu</mat-icon>
+    </button>
+        <img src="../../../../assets/images/note.png">
+        <span>Fundoo Note</span>
+        <mat-card class="input-card">
+            <mat-icon>search</mat-icon>
+            <div class="input-feild">
+                <input type="search" placeholder="search">
+            </div>
+        </mat-card>        
+        <!-- <mat-icon fxShow.xs="true">search</mat-icon> -->
+        <span class="settings"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+      <img class="img" src="../../../../assets/images/mm.JPG" alt="Om">
+    </button>
+        <mat-menu #menu="matMenu" class="menu">
+            <div class="userDetail">
+                <div fxLayout="row wrap" fxLayoutAlign="center">
+                    <img class="img inner" src="../../../../assets/images/DSC_0106.JPG-01.JPG" alt="Avatar ">
+                </div>
+                <div fxLayoutAlign="center" class="name">Omprakash</div>
+                <div fxLayoutAlign="center" class="email">email</div>
+                <div fxLayout="row wrap" fxLayoutAlign="center" class="button">
+                    <button mat-stroked-button type="submit " (click)="logout() ">Logout</button>
+                </div>
+            </div>
+        </mat-menu>
+    </mat-toolbar>
+</div>
 
 
-
-
-
-
-
-
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>Toggle extra text
-      </button>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
-      </button>
+<mat-drawer-container class="container">
+    <div fxFlex.xs="90">
+        <div fxFlex="10% ">        
+            <span class="nav ">
+        <button mat-icon-button>
+          <mat-icon class="material-icons-outlined "  >emoji_objects</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="material-icons-outlined ">notifications</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="material-icons-outlined " >create</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="material-icons-outlined " >archive</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="material-icons-outlined " >delete</mat-icon>
+        </button>
+      </span>
+        </div>
+        <div fxFlex="column" fxFlex="90%" class="content " fxLayout="column wrap" fxLayoutGap="35px grid">
+            <router-outlet>
+            </router-outlet>
+        </div>
     </div>
-  
-  </mat-drawer-container>
+</mat-drawer-container>
