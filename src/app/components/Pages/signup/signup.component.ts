@@ -3,8 +3,9 @@ import {FormBuilder, FormGroupDirective, FormControl, NgForm, FormGroup, Pattern
 import {UserService} from '../../../services/UserServices/user.service';
 import { ErrorStateMatcher, } from '@angular/material/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {    MatSnackBarConfig} from '@angular/material/snack-bar';
-
+import {
+    MatSnackBarConfig
+} from '@angular/material/snack-bar';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -44,10 +45,11 @@ export class SignupComponent implements OnInit {
     
     this.registerForm = this.formBuilder.group(
       {
-        firstName: new FormControl('', [Validators.required
-           
+        firstName: new FormControl('', [Validators.required,
+           Validators.pattern('^[A-Z][a-z]{2,}$')
           ] ,), 
-        lastName: new FormControl('', [Validators.required
+        lastName: new FormControl('', [Validators.required, 
+          Validators.pattern('^[A-Z][a-z]{2,}$')
         ],),
         email: new FormControl('', [Validators.required
         ]),

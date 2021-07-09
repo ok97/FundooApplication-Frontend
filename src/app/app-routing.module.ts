@@ -5,16 +5,17 @@ import { LoginComponent } from './components/Pages/login/login.component';
 import { ForgetPasswordComponent } from './components/Pages/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './components/Pages/reset-password/reset-password.component';
 import { DashboardComponent } from './components/Pages/dashboard/dashboard.component';
-
-
+import {AuthenticationGuard} from './authGuard/authentication.guard'
 
 const routes: Routes = [
   {
-    path: 'signup', component: SignupComponent },
-  { path : 'login', component: LoginComponent },
+    path: 'signup', component: SignupComponent, pathMatch: 'full'
+  },
+  { path : 'login', component: LoginComponent, pathMatch: 'full', },
   { path : 'ForgetPassword', component: ForgetPasswordComponent},
-  { path : 'ResetPassword', component: ResetPasswordComponent},  
-  { path : 'dashboard',component:DashboardComponent}  
+  { path : 'ResetPassword/:token', component: ResetPasswordComponent}, 
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard]
+  },
 ];
 
 @NgModule({
@@ -22,6 +23,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  
+  snapshot: any; 
 
 }

@@ -1,17 +1,19 @@
-
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators,} from '@angular/forms';
 import {UserService} from '../../../services/UserServices/user.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import {  MatSnackBarConfig,MatSnackBarHorizontalPosition,MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
-
+import {
+  MatSnackBarConfig,
+MatSnackBarHorizontalPosition,
+MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
- // encapsulation: 
+ // encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
 
@@ -28,8 +30,10 @@ export class LoginComponent implements OnInit {
     public snackBar: MatSnackBar, private route: Router) { 
     this.loginForm = this.formBuilder.group(
       {
-        email: new FormControl('', [Validators.required]),
-        password:  new FormControl('', [Validators.required]),}
+        email: new FormControl('', [Validators.required
+        ]),
+        password:  new FormControl('', [Validators.required
+        ]),}
     );   
     this.isActive = true;
   } 
@@ -59,7 +63,7 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           localStorage.setItem('FunDooNotesJWT', response['token']);
           this.openSnackBar('Login success', 2000);
-          
+          this.route.navigate(['Dashboard']);
         },
         error => {
           try {

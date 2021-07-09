@@ -111,8 +111,7 @@
         "allow-pascal-case"
       ]
     },
-    "whitespace": 
-    {
+    "whitespace": {
       "options": [
         "check-branch",
         "check-decl",
@@ -151,3 +150,4 @@
     ]
   }
 }
+

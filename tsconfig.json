@@ -16,8 +16,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": 
-    [
+    "lib": [
       "es2018",
       "dom"
     ]
@@ -29,3 +28,4 @@
     "strictTemplates": true
   }
 }
+

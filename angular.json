@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "70b9edc3-767a-451d-9ae5-d946b3d709c9"
+    "analytics": "fcd4f075-0ec0-4093-bbdc-4777cff6342a"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -134,3 +134,4 @@
   },
   "defaultProject": "fundoonotes"
 }
+

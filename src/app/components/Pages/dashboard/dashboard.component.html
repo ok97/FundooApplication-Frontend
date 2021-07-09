@@ -1,69 +1,93 @@
-<link
-  href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-  rel="stylesheet">
-<div fxLayout="row">
-    <mat-toolbar class="header">
-        <button >
-      <mat-icon>menu</mat-icon>
-    </button>
-        <img src="../../../../assets/images/note.png">
-        <span class="color-fundoo-F" style="color:#4285F4">F</span>
+<div id="main" class="example-container" [class.example-is-mobile]="mobileQuery.matches"  >
+    <mat-toolbar color="primary" class="example-toolbar">
+      <div class="th">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <img class="head-img" src="../../../../assets/images/notes.png">
+      
+        <h1 class="title-head"><span class="color-fundoo-F" style="color:#4285F4">F</span>
           <span class="color-fundoo" style="color:#ea4335">u</span>
           <span class="color-fundoo" style="color:#fbbc05">n</span>
           <span class="color-fundoo" style="color:#4285f4">d</span>
           <span class="color-fundoo" style="color:#34a853">o</span>
-          <span class="color-fundoo" style="color:#ea4335">o</span>
-        <mat-card class="input-card">
-            <mat-icon>search</mat-icon>
-            <div class="input-feild">
-                <input type="search" placeholder="search">
-            </div>
-        </mat-card>        
-        <!-- <mat-icon fxShow.xs="true">search</mat-icon> -->
-        <span class="settings"></span>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-      <img class="img" src="../../../../assets/images/mm.JPG" alt="Om">
-    </button>
-        <mat-menu #menu="matMenu" class="menu">
-            <div class="userDetail">
-                <div fxLayout="row wrap" fxLayoutAlign="center">
-                    <img class="img inner" src="../../../../assets/images/DSC_0106.JPG-01.JPG" alt="Avatar ">
-                </div>
-                <div fxLayoutAlign="center" class="name">Omprakash</div>
-                <div fxLayoutAlign="center" class="email">omkhawshi0@gmail.com</div>
-                <div fxLayout="row wrap" fxLayoutAlign="center" class="button">
-                    <button mat-stroked-button type="submit " (click)="logout() ">Logout</button>
-                </div>
-            </div>
-        </mat-menu>
+          <span class="color-fundoo" style="color:#ea4335">o</span></h1></div>
+       
+      <div>
+        <mat-form-field class="Search" appearance="outline" #search>
+            <input matInput placeholder="Search" name="Search" >
+            <button mat-button  matSuffix mat-icon-button aria-label="Clear" >
+                
+                </button>
+          </mat-form-field>
+      </div>
+      
     </mat-toolbar>
-</div>
-
-
-<mat-drawer-container class="container">
-    <div fxFlex.xs="90">
-        <div fxFlex="10% ">        
-            <span class="nav ">
-        <button mat-icon-button>
-          <mat-icon class="material-icons-outlined "  >emoji_objects</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon class="material-icons-outlined ">notifications</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon class="material-icons-outlined " >create</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon class="material-icons-outlined " >archive</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon class="material-icons-outlined " >delete</mat-icon>
-        </button>
-      </span>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" 
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" opened="true">
+        <mat-nav-list >
+          <a [disableRipple]="true" mat-list-item routerLink="." > <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"></path>
+        </svg><span class="nav-menu">Notes</span></a>
+          <a [disableRipple]="true" mat-list-item routerLink="." > <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 17v-6c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v6H4v2h16v-2h-2zm-2 0H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zm-4 5c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z"></path>
+        </svg><span class="nav-menu">Reminders</span></a>
+          <a [disableRipple]="true" mat-list-item routerLink="." ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.41 4.94l-1.35-1.35c-.78-.78-2.05-.78-2.83 0L13.4 6.41 3 16.82V21h4.18l10.46-10.46 2.77-2.77c.79-.78.79-2.05 0-2.83zm-14 14.12L5 19v-1.36l9.82-9.82 1.41 1.41-9.82 9.83z"></path></svg>
+            <span class="nav-menu">Archive</span></a>
+          <a [disableRipple]="true" mat-list-item routerLink="." ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path><path d="M9 8h2v9H9zm4 0h2v9h-2z"></path></svg>
+            <span class="nav-menu">Trash</span></a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content class="container">
+  
+        <div class="note-create">
+          <app-note-create  (messageEvent)="receiveMessage($event)" ></app-note-create>
         </div>
-        <div fxFlex="column" fxFlex="90%" class="content " fxLayout="column wrap" fxLayoutGap="35px grid">
-            <router-outlet>
-            </router-outlet>
+        <div class="out">
+          <div class="display-notes">
+            <app-note-display  (messageEvent)="receiveNoteMessage($event)" (moreEvent)="receiveMoreEvent($event)" *ngFor="let content of notes" [childMessage]="content" [id]="'D'+content.noteID"></app-note-display>
+            
+            <mat-card *ngIf="more" [style.top.px]="top" [style.left.px]="left" class="moremenu" aria-hidden="false" role="menu" aria-haspopup="true" tabindex="0">
+              <div class="delete-more menu-more" (click)="deleteNote()" role="menuitem" id=":1" style="user-select: none;">
+                  <div class="menu-list delete-note" style="user-select: none;">Delete note</div>
+              </div>
+              <div class="menu-more" role="menuitem" id=":2" style="user-select: none;">
+                  <div class="" style="user-select: none;">Add label</div>
+              </div >
+          </mat-card>
+          </div>
         </div>
-    </div>
-</mat-drawer-container>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+  </div> 
+  
+  <div class="note-update" *ngIf="updating" (loaded)="focusNote()">
+    <!-- <app-note-update [updateNote]="updateNote" class="note-u"></app-note-update> -->
+    <mat-card class="dis-note" >
+      <div class="tn">
+          <div class="tp">
+              <div id="up-title" contenteditable="true" data-placeholder="Title" aria-multiline="true" role="textbox" class="notranslate un-t" tabindex="0" spellcheck="true" aria-label="Title" >{{updateNote['title']}}</div>
+              <div  role="button" class="u-pin" tabindex="0" aria-label="Pin note" aria-pressed="false" style="user-select: none;" autofocus></div>  
+          </div>
+          <div id="upnote" name="upnotename" contenteditable="true" data-placeholder="Note" aria-multiline="true" role="textbox" class="un-n" tabindex="1" spellcheck="true" aria-label="Note" #upnote>{{ updateNote['text'] }}</div>
+        </div>
+      <div class="nu-bottom" id="bottom" >
+          <div class="nu-prop">
+              <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
+              <div class="collaborator prop" role="button" matTooltip="Collaborator" matTooltipPosition='below'></div>
+              <div class="back-color prop" role="button" matTooltip="change color" matTooltipPosition='below'></div>
+              <div class="back-image prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
+              <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+              <div class="more prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
+              <div class="undo prop" role="button" matTooltip="Undo" matTooltipPosition='below'></div>
+              <div class="redo prop" role="button" matTooltip="Redo" matTooltipPosition='below'></div>
+          </div>
+          <div class="close-note" >
+              Close
+          </div>
+      </div>
+  </mat-card>
+  
+  </div>
+  <div *ngIf="updating" (click)="UpdateNote()" id="block" class="block" #updateNote></div>

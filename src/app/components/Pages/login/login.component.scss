@@ -12,7 +12,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- // color: #1a73e8;
   
 }
 .create, .forget{
@@ -48,8 +47,8 @@ a{
   margin: auto;
   margin-top: 85px;
   height: auto;
-  min-height: 450px;
-  align-content: center;
+    min-height: 450px;
+    align-content: center;
 }
 .use{
   color: #202124;
@@ -73,6 +72,9 @@ margin-top: 20px;
   top: -0.1em !important; 
   color: rgba(0,0,0,.6);
 }
+#loginEmail>mat-form-field{
+ // height: 70px !important;
+}
 .loginForm{
   flex-direction: column;
   flex-wrap: wrap;
@@ -87,7 +89,6 @@ margin-top: 20px;
 mat-form-field{
   width: -webkit-fill-available;
 }
-
 .color-fundoo{
   font-weight: 550;
   font-size: 15pt;
