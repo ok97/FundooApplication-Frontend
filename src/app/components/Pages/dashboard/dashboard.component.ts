@@ -4,6 +4,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, OnDestroy, Renderer2} from '@angular/core';
 import {NoteDisplayComponent} from '../../note-display/note-display.component';
 import {NoteCreateComponent} from '../../note-create/note-create.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     updating: boolean = false;
     mobileQuery: MediaQueryList;
     value = 'Search';
-    notes!: Array<{title:string, text:string, createdOn:Date, IsPin:boolean, noteID:boolean}>;
+    notes!: Array<{title:string, text:string, createdOn:Date, Pin:boolean, noteID:boolean}>;
     title : string; 
 
     updateNote : any
@@ -28,7 +29,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     deleteNoteId: number = 0;
     prevNoteID : number = 0;
 
-   constructor(private renderer: Renderer2, private elRef:ElementRef, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private NotesService: NotesService) {
+   constructor(private renderer: Renderer2, private elRef:ElementRef, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private NotesService: NotesService ,public route: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -66,7 +67,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
       this.more = false;
     }    
   }
-
+  logout() {
+    this.route.navigate(['login']);
+  }
   deleteNote(){
     this.NotesService.deleteNote(this.deleteNoteId).subscribe(
       (response: any) => {

@@ -63,7 +63,9 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           localStorage.setItem('FunDooNotesJWT', response['token']);
           this.openSnackBar('Login success', 2000);
+         // console.log(response);
           this.route.navigate(['Dashboard']);
+          console.log(response);
         },
         error => {
           try {

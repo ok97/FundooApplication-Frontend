@@ -6,6 +6,7 @@ import { ForgetPasswordComponent } from './components/Pages/forget-password/forg
 import { ResetPasswordComponent } from './components/Pages/reset-password/reset-password.component';
 import { DashboardComponent } from './components/Pages/dashboard/dashboard.component';
 import {AuthenticationGuard} from './authGuard/authentication.guard'
+import { NoteCreateComponent } from './components/note-create/note-create.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path : 'login', component: LoginComponent, pathMatch: 'full', },
   { path : 'ForgetPassword', component: ForgetPasswordComponent},
   { path : 'ResetPassword/:token', component: ResetPasswordComponent}, 
-  { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard]
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard],
+  children: [  
+             {  path: 'note',component: NoteCreateComponent    }, ]
   },
 ];
 

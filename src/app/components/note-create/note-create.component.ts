@@ -31,7 +31,8 @@ export class NoteCreateComponent implements OnInit, AfterViewInit  {
       title :(<HTMLInputElement>document.getElementById("title"))?
        (<HTMLInputElement>document.getElementById("title")).value:'',
       text : (<HTMLInputElement>document.getElementById("note")).innerText.trim(),
-      IsPin: this.pin
+      Pin: this.pin
+
   }
     if(reqData.text != ''){
       this.NotesService.createNote(reqData).subscribe(
@@ -41,6 +42,7 @@ export class NoteCreateComponent implements OnInit, AfterViewInit  {
       });;
     }
     this.pin = false
+    console.log("Susscess");
   }
 
   ngAfterViewInit() {
