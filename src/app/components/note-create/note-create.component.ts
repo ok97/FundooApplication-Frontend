@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ElementRef, AfterViewInit, Input, ViewChild, Output, EventEmitter  } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators, } from '@angular/forms';
+//import {FormBuilder, FormGroup, FormControl, Validators, } from '@angular/forms';
 import {NotesService} from '../../services/NotesService/notes.service';
 @Component({
   selector: 'app-note-create',

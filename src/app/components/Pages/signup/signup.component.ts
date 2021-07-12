@@ -89,7 +89,8 @@ export class SignupComponent implements OnInit {
       this.userSevice.registerUser(reqData).subscribe(
         response => {
           console.log("register successfull", response);
-          this.openSnackBar('Registration successful', 2000);      
+          this.openSnackBar('Registration successful', 2000);   
+           console.log(response);  
         },
         error => {
           if(error['status'] == 0){
