@@ -117,7 +117,16 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     let reqData={
       noteID : this.updateNote['noteID'],
       title :(<HTMLInputElement>document.getElementById("up-title")).innerText.trim(),
-      text : (<HTMLInputElement>document.getElementById("upnote")).innerText.trim()
+      description : (<HTMLInputElement>document.getElementById("upnote")).innerText.trim(),
+      body:"45454",
+      reminder: "string",
+      color: "string",
+      image: "string",
+      archived: true,
+      trash: true,
+      pin: true,
+      createdDate: "2021-07-12T03:30:24.904Z",
+      modifiedDate: "2021-07-12T03:30:24.904Z"
     }
 
     if(this.updateNote != reqData){
