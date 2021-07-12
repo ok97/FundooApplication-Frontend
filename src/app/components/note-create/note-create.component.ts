@@ -28,13 +28,23 @@ export class NoteCreateComponent implements OnInit, AfterViewInit  {
   }
   createNote(){
     let reqData={
+      userId : 12,
       title :(<HTMLInputElement>document.getElementById("title"))?
-       (<HTMLInputElement>document.getElementById("title")).value:'',
-      text : (<HTMLInputElement>document.getElementById("note")).innerText.trim(),
-      Pin: this.pin
+       (<HTMLInputElement>document.getElementById("title")).value:'',      
+       description : (<HTMLInputElement>document.getElementById("note")).innerText.trim(),
+       body:"45454",
+       reminder: "string",
+       color: "string",
+       image: "string",
+       archived: true,
+       trash: true,
+       pin: true,
+       createdDate: "2021-07-12T03:30:24.904Z",
+       modifiedDate: "2021-07-12T03:30:24.904Z"
+     // Pin: this.pin
 
   }
-    if(reqData.text != ''){
+    if(reqData.description != ''){
       this.NotesService.createNote(reqData).subscribe(
         (response: any) => {
         console.log(response);

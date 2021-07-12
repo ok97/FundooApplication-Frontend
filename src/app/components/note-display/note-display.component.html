@@ -2,16 +2,31 @@
     <mat-card [id]="'note-'+childMessage.noteID" class="note-d note-before" ng-class="">
         <div id="dntn" class="nd" (click)="updateNoteProcess()" >
             <div id="title" #title  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['title'] }}</div>
+            <div id="description" #description  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['description'] }}</div>
+            <!-- <div id="description" #body  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['body'] }}</div>
+            <div id="description" #description  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['description'] }}</div>
+            <div id="description" #description  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['description'] }}</div>
+            <div id="description" #description  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['description'] }}</div>
+            <div id="description" #description  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['description'] }}</div> -->
+           
+           
             <div id="note" contenteditable="false" aria-multiline="true" role="textbox" class="n n1" >{{ childMessage['text'] }}</div>
             
         </div>
         <div class="bot">
             <div class="tool" role="toolbar">
-                <div role="button" class="prop reminder" tabindex="0" aria-label="Remind me" matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
+                <div role="button" class="prop reminder" tabindex="0" aria-label="Remind me" matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'>
+                    <mat-icon> add_alert</mat-icon>
+                </div>
                 
-                <div role="button" class="prop back-image" tabindex="0" aria-label="Add image" matTooltip="Add image" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
+                <div role="button" class="prop back-image" tabindex="0" aria-label="Add image" matTooltip="Add image" matTooltipClass="prop-tip" matTooltipPosition='below'>
+                    <mat-icon>image</mat-icon>
+                </div>
                 
-                <div role="button" class="prop archive" tabindex="0" aria-label="Archive" matTooltip="Archive" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
+                <div role="button" class="prop archive" tabindex="0" aria-label="Archive" matTooltip="Archive" matTooltipClass="prop-tip" matTooltipPosition='below'>
+                    <mat-icon> <a [disableRipple]="true" mat-list-item routerLink="." > <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 17v-6c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v6H4v2h16v-2h-2zm-2 0H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zm-4 5c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z"></path>
+                    </svg><span class="nav-menu"></span></a></mat-icon>
+                </div>
                 
                 <div role="button" id="moremenu" (click)="move($event)" class="prop more" tabindex="0" aria-label="More" matTooltip="More" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
             </div>

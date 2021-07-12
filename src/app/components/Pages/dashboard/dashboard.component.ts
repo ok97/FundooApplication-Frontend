@@ -17,8 +17,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     updating: boolean = false;
     mobileQuery: MediaQueryList;
     value = 'Search';
-    notes!: Array<{title:string, text:string, createdOn:Date, Pin:boolean, noteID:boolean}>;
-    title : string; 
+    notes!: Array<{title:string, description:string, body:any,reminder:any, color:any,image:any,archived:any,trash:any,pin:any,createdDate:any,modifiedDate:any, noteID:any}>;
+    title : string;
+    //description:string;
 
     updateNote : any
     @ViewChild("upnote")  upNote! : ElementRef;
@@ -95,7 +96,11 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   loadActiveNotes(){
     this.NotesService.GetActiveNotes().subscribe(
       (response: any) => {
-      this.notes = response['notes']['result'];
+        console.log(response);
+      this.notes = response['data'];
+      this.notes.reverse();
+     console.log(":- ",this.notes)
+      
     });
   }
   

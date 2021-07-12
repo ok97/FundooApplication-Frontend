@@ -71,6 +71,7 @@
         <div class="note-create">
           <app-note-create  (messageEvent)="receiveMessage($event)" ></app-note-create>
         </div>
+      
         <div class="out">
           <div class="display-notes">
             <app-note-display  (messageEvent)="receiveNoteMessage($event)" (moreEvent)="receiveMoreEvent($event)" *ngFor="let content of notes" [childMessage]="content" [id]="'D'+content.noteID"></app-note-display>

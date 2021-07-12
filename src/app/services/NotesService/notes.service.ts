@@ -12,18 +12,18 @@ export class NotesService {
   options = { headers: this.headers };
   constructor(private httpService : HttpService) { }
   createNote(data: any){
-    return this.httpService.post('/api/Notes/Add Note', data, this.options)
+    return this.httpService.post('api/Notes/AddNote', data,{ headers: this.headers })
   }
   GetActiveNotes(){
 
-    return this.httpService.Get('/api/Notes/Get Notes', this.options)
+    return this.httpService.Get('api/Notes/GetNotes', this.options)
   }
   updateNote(data: any ) {
  
-    return this.httpService.put('/api/Notes/Update', data, this.options);
+    return this.httpService.put('api/Notes/Update', data, this.options);
   }
   deleteNote(NoteID: number)
   {
-    return this.httpService.delete('/api/Notes/Delete'+NoteID, this.options);
+    return this.httpService.delete('api/Notes/Delete'+NoteID, this.options);
   }
 }
