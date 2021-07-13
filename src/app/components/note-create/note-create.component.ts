@@ -24,7 +24,7 @@ export class NoteCreateComponent implements OnInit, AfterViewInit  {
   takeNote(){
     this.createNote();
     this.fullEdit = false;
-    (<HTMLInputElement>document.getElementById("note")).innerText = '';
+    (<HTMLInputElement>document.getElementById("note")).innerText = '';let date: Date = new Date();  
   }
   createNote(){
     let reqData={
@@ -39,8 +39,8 @@ export class NoteCreateComponent implements OnInit, AfterViewInit  {
        archived: true,
        trash: true,
        pin: true,
-       createdDate: "2021-07-12T03:30:24.904Z",
-       modifiedDate: "2021-07-12T03:30:24.904Z"
+       createdDate: Date,
+       modifiedDate: Date
      // Pin: this.pin
 
   }

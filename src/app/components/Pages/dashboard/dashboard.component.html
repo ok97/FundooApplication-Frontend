@@ -104,13 +104,12 @@
         </div>
       <div class="nu-bottom" id="bottom" >
           <div class="nu-prop">
-              <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
-             
-              <div class="back-image prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
-              <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
-              <div class="more prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
+            <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
+            <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
+            <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
+            <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
           </div>
-          <div class="close-note" > Close </div>
+          <div class="close-note" (click)="UpdateNote()"> Close </div>
       </div>
   </mat-card>
   
