@@ -30,6 +30,8 @@ export class NoteDisplayComponent implements OnInit {
   updateNoteProcess(){
     this.sendMessage();
   }
+
+  
   ngOnInit(): void {
   }
 }

@@ -97,7 +97,7 @@
     <mat-card class="dis-note" >
       <div class="tn">
           <div class="tp">
-              <div id="up-title" contenteditable="true" data-placeholder="Title" aria-multiline="true" role="textbox" class="notranslate un-t" tabindex="0" spellcheck="true" aria-label="Title" >{{updateNote['title']}}</div>
+              <div id="up-title" contenteditable="true" data-placeholder="Title" aria-multiline="true" role="textbox" class="notranslate un-t" tabindex="0" spellcheck="true" aria-label="Title" >{{updateNote['title']}},{{updateNote['notesId']}}</div>
               <div  role="button" class="u-pin" tabindex="0" aria-label="Pin note" aria-pressed="false" style="user-select: none;" autofocus></div>  
           </div>
           <div id="upnote" name="upnotename" contenteditable="true" data-placeholder="Note" aria-multiline="true" role="textbox" class="un-n" tabindex="1" spellcheck="true" aria-label="Note" #upnote>{{ updateNote['description'] }}</div>
@@ -108,6 +108,8 @@
             <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
             <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
             <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
+            <div class="delete prop" (click)="deleteNote()" role="button" matTooltip="delete" matTooltipPosition='below'><mat-icon>delete</mat-icon></div>
+            
           </div>
           <div class="close-note" (click)="UpdateNote()"> Close </div>
       </div>

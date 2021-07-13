@@ -10,7 +10,7 @@
             <div id="description" #description  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['description'] }}</div> -->
            
            
-            <div id="note" contenteditable="false" aria-multiline="true" role="textbox" class="n n1" >{{ childMessage['text'] }}</div>
+            <!-- <div id="note" contenteditable="false" aria-multiline="true" role="textbox" class="n n1" >{{ childMessage['text'] }}</div> -->
             
         </div>
         <div class="bot">
@@ -20,8 +20,9 @@
                 <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
                 <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
                 <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
+                <div class="delete prop" role="button"  matTooltip="Delete" matTooltipPosition='below'><mat-icon>delete</mat-icon></div>
                 
-                <div role="button" id="moremenu" (click)="move($event)" class="prop more" tabindex="0" aria-label="More" matTooltip="More" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
+                
             </div>
         </div>
     </mat-card>

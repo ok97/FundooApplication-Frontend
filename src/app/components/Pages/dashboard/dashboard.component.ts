@@ -107,6 +107,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   receiveNoteMessage($event: any) {
     this.updateNote = $event
     this.updating = true;
+    console.log(this.updateNote)
   }
   focusNote(){
     this.upNote.nativeElement.focus();
@@ -115,20 +116,36 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   UpdateNote(){
     
     let reqData={
-      //userId : 12,
-      noteID : this.updateNote['noteID'],
+      //userId : 13,
+      notesId : this.updateNote.notesId,
       title :(<HTMLInputElement>document.getElementById("up-title")).innerText.trim(),
       description : (<HTMLInputElement>document.getElementById("upnote")).innerText.trim(),
       body:"45454",
-      reminder: "string",
-      color: "string",
+      color: "string",      
       image: "string",
-      archived: true,
-      trash: true,
       pin: true,
-      createdDate: "2021-07-12T03:30:24.904Z",
-      modifiedDate: "2021-07-12T03:30:24.904Z"
+      archived: true, 
+      trash: true,
+     
+      //createdDate: "2021-07-12T03:30:24.904Z",
+      modifiedDate: "2021-07-12T03:30:24.904Z",
+      reminder: "2021-07-13T13:18:18.506Z",
+
+
+      // "notesId": 13,
+      // "title": "Omprakash",
+      // "description": "Khawshi",
+      // "body": "string",
+      // "color": "string",
+      // "image": "string",
+      // "pin": true,
+      // "archived": true,
+      // "trash": true,
+      // "modifiedDate": "2021-07-13T13:18:18.506Z",
+      // "reminder": "2021-07-13T13:18:18.506Z"
+
     }
+    console.log(":-",reqData);
 
     if(this.updateNote != reqData){
       this.NotesService.updateNote(reqData).subscribe(
