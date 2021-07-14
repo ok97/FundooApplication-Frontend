@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   
   @HostListener('click', ['$event'])
   position($event: any){
-    if($event.srcElement.id=="moremenu"){
+    if($event.srcElement.id=="delete"){
   //    console.log($event.path[3].id);
       
       this.left = $event.target.offsetLeft + $event.path[5].offsetLeft;
@@ -71,8 +71,15 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   logout() {
     this.route.navigate(['login']);
   }
-  deleteNote(){
-    this.NotesService.deleteNote(this.deleteNoteId).subscribe(
+  deleteNote()
+  {
+    let deletereq={
+      notesId:this.updateNote.notesId
+    }
+    console.log(deletereq)
+    
+
+    this.NotesService.deleteNote(deletereq).subscribe(
       (response: any) => {
       this.loadActiveNotes();
     });;
