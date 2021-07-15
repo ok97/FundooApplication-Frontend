@@ -15,7 +15,9 @@ export class NoteDisplayComponent implements OnInit {
   top: number = 0;
   left : number = 0;
   more : boolean = false;
+  
   constructor(elRef:ElementRef) { }
+  
   move($event: any) {
     this.more = !this.more;
     this.moreEvent.emit(this.childMessage['noteID']);
