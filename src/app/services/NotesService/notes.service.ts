@@ -24,6 +24,6 @@ export class NotesService {
   }
   deleteNote(data: any)
   {
-    return this.httpService.delete('api/Notes/Delete', this.options);
+    return this.httpService.delete('api/Notes/Delete', data);
   }
 }

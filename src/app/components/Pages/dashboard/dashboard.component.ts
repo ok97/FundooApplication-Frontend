@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     }
     console.log(deletereq)
     
-
+      
     this.NotesService.deleteNote(deletereq).subscribe(
       (response: any) => {
       this.loadActiveNotes();
