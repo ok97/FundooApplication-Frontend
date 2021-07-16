@@ -31,6 +31,13 @@ export class NotesService {
 
   }
 
+  ArchiveNote(data:any){
+    console.log("Notes Services notesId:-",data);
+
+    return this.httpService.put('api/Notes/Archived',data,{ headers: this.headers });
+
+  }
+
   // noteId : any;
 
   // NoteId(data:any){

@@ -72,6 +72,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   logout() {
     this.route.navigate(['login']);
   }
+
+
+
   deleteNote()
   {
     let deletereq={

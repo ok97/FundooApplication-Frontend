@@ -36,9 +36,9 @@ export class NoteCreateComponent implements OnInit, AfterViewInit  {
        reminder: "string",
        color: "string",
        image: "string",
-       archived: true,
-       trash: true,
-       pin: true,
+       archived: false,
+       trash: false,
+       pin: false,
        createdDate: Date,
        modifiedDate: Date
      // Pin: this.pin

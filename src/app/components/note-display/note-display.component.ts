@@ -41,7 +41,20 @@ export class NoteDisplayComponent implements OnInit {
     this.sendMessage();
   }
 
+  Archive(){
+    
+    let ArchiveReq={
+      noteId : this.Allnotes.map(({ notesId } : any) => notesId),
+      "archived": true
+    }
+    console.log("------------->",ArchiveReq.noteId[0])
 
+    this.noteService.ArchiveNote(ArchiveReq).subscribe(
+      (response: any) => {
+       console.log(response)
+    // this.loadActiveNotes();
+    });
+  }
 
   Delete(){
     // this.noteId = this.noteService.getId();
