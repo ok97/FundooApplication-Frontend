@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 
 export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {  
-
+myDate=Date.now();
     updating: boolean = false;
     mobileQuery: MediaQueryList;
     value = 'Search';
@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     title : string;
     //description:string;
     
-qDate:any
+
     updateNote : any
     @ViewChild("upnote")  upNote! : ElementRef;
     top: number = 0;
@@ -129,13 +129,13 @@ qDate:any
 
 
   // Date
-
+Date=Date.now();
   
   // Color Changes
   getColor(color:any) 
   {
     
-     
+    let date: Date = new Date();
   
     
     
@@ -149,6 +149,7 @@ qDate:any
       notesId : this.updateNote.notesId,
       title :(<HTMLInputElement>document.getElementById("up-title")).innerText.trim(),
       description : (<HTMLInputElement>document.getElementById("upnote")).innerText.trim(),
+      modifiedDate: Date,
       body:"45454",
       color: "string",      
       image: "string",
@@ -157,7 +158,7 @@ qDate:any
       trash: true,
      
       //createdDate: "2021-07-12T03:30:24.904Z",
-      modifiedDate: "2021-07-12T03:30:24.904Z",
+      
       reminder: "2021-07-13T13:18:18.506Z",
 
 

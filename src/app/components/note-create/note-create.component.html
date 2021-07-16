@@ -14,8 +14,11 @@
         data-placeholder="Take a note..." class="notes-main" aria-label="Take a note…" 
         tabindex="0" spellcheck="true" id="note" ></div>
         <div class="img-upload" *ngIf="!fullEdit"></div>
+        
     </div>
+    
     <div class="card-bottom" id="bottom" *ngIf="fullEdit">
+        <div><mat-label style="padding-left: 450px;">{{myDate | date:'short'}}</mat-label></div>
         <div class="note-prop">
             <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
             <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>

@@ -7,6 +7,7 @@ import {NotesService} from '../../services/NotesService/notes.service';
   styleUrls: ['./note-create.component.scss']
 })
 export class NoteCreateComponent implements OnInit, AfterViewInit  {
+  myDate=Date.now();
   pin : boolean = false;
   fullEdit : boolean = false;
 
