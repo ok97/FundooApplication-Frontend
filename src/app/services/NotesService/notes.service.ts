@@ -24,6 +24,22 @@ export class NotesService {
   }
   deleteNote(data: any)
   {
-    return this.httpService.delete('api/Notes/Delete', data);
+
+    console.log("Notes Services notesId:-",data);
+
+    return this.httpService.delete('api/Notes/Delete/',data,{ headers: this.headers });
+
   }
+
+  // noteId : any;
+
+  // NoteId(data:any){
+     
+  //   this.noteId = data;
+  //   console.log("note service--->",this.noteId)
+  // }
+
+  // getId(){
+  //   return this.noteId;
+  // }
 }

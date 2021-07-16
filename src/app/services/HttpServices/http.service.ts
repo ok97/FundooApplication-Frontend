@@ -29,11 +29,12 @@ export class HttpService {
     }
     return this.http.put(this.BaseUrl + url, data);
   }
-  delete(url: any, headers: any){
-    if(headers != null)
-    {
-      return this.http.delete(this.BaseUrl + url, headers);
-    }
-    return this.http.delete(this.BaseUrl + url);
+  delete(url: any,data:any, headers: any){
+    // if(headers != null)
+    // {
+      return this.http.delete(this.BaseUrl + url+ data,headers);
+    // }
+    // return this.http.delete(this.BaseUrl + url);
+  
   }
 }

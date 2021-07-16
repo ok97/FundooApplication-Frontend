@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     notes!: Array<{title:string, description:string, body:any,reminder:any, color:any,image:any,archived:any,trash:any,pin:any,createdDate:any,modifiedDate:any, noteID:any}>;
     title : string;
     //description:string;
+    
 
     updateNote : any
     @ViewChild("upnote")  upNote! : ElementRef;
@@ -77,10 +78,13 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
       notesId:this.updateNote.notesId
     }
     console.log(deletereq)
+
+   // this.NotesService.NoteId(deletereq);
     
       
     this.NotesService.deleteNote(deletereq).subscribe(
       (response: any) => {
+        console.log(response);
       this.loadActiveNotes();
     });;
   }
@@ -119,6 +123,16 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   focusNote(){
     this.upNote.nativeElement.focus();
   }
+  // Color Changes
+  getColor(color:any) 
+  {
+    
+     
+  
+    
+    
+  }
+
 
   UpdateNote(){
     

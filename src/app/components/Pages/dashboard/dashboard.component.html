@@ -74,7 +74,7 @@
       
         <div class="out">
           <div class="display-notes">
-            <app-note-display  (messageEvent)="receiveNoteMessage($event)" (moreEvent)="receiveMoreEvent($event)" *ngFor="let content of notes" [childMessage]="content" [id]="'D'+content.noteID"></app-note-display>
+            <app-note-display  (messageEvent)="receiveNoteMessage($event)" (moreEvent)="receiveMoreEvent($event)" *ngFor="let content of notes" [childMessage]="content" [id]="'D'+content.noteID" [Allnotes]="notes"></app-note-display>
             
             <mat-card *ngIf="more" [style.top.px]="top" [style.left.px]="left" class="moremenu" aria-hidden="false" role="menu" aria-haspopup="true" tabindex="0">
               <div class="delete-more menu-more" (click)="deleteNote()" role="menuitem" id=":1" style="user-select: none;">
@@ -106,7 +106,12 @@
           <div class="nu-prop">
             <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
             <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
-            <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'></div>
+           
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'></div>
+          </button>
+
+      
             <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
             <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
             <div class="delete prop" (click)="deleteNote()" role="button" matTooltip="delete" matTooltipPosition='below'><mat-icon>delete</mat-icon></div>
@@ -115,6 +120,32 @@
           <div class="close-note" (click)="UpdateNote()"> Close </div>
       </div>
   </mat-card>
+ 
+  <!-- Color -->
+ 
+  
+<mat-menu #menu="matMenu" fxLayout="row">
+  <div fxLayoutAlign="space-around center" class="pallet">
+      <div class="color-one" (click)="getColor('#fff')">           
+      </div>
+      <div class="color-two" (click)="getColor('#f28b82')"></div>
+      <div class="color-three" (click)="getColor('#fbbc04')"></div>
+      <div class="color-four" (click)="getColor('#fff475')"></div>
+  </div>
+  <div fxLayoutAlign="space-around center" class="pallet">
+      <div class="color-five" (click)="getColor('#ccff90')"></div>
+      <div class="color-six" (click)="getColor('#a7ffeb')"></div>
+      <div class="color-seven" (click)="getColor('#cbf0f8')"></div>
+      <div class="color-eight" (click)="getColor('#aecbfa')"></div>
+  </div>
+
+  <div fxLayoutAlign="space-around center" class="pallet">
+      <div class="color-nine" (click)="getColor('#d7aefb')"></div>
+      <div class="color-ten" (click)="getColor('#fdcfe8')"></div>
+      <div class="color-eleven" (click)="getColor('#e6c9a8')"></div>
+      <div class="color-twelve" (click)="getColor('#e8eaed')"></div>
+  </div>
+</mat-menu>
   
   </div>
   <div *ngIf="updating" (click)="UpdateNote()" id="block" class="block" #updateNote></div>
