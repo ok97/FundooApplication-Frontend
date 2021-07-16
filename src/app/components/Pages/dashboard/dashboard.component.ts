@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
     title : string;
     //description:string;
     
-
+qDate:any
     updateNote : any
     @ViewChild("upnote")  upNote! : ElementRef;
     top: number = 0;
@@ -126,6 +126,11 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnChanges {
   focusNote(){
     this.upNote.nativeElement.focus();
   }
+
+
+  // Date
+
+  
   // Color Changes
   getColor(color:any) 
   {

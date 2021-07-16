@@ -14,18 +14,13 @@
       <div>
         <mat-form-field class="Search" appearance="outline" #search>
             <input matInput placeholder="Search" name="Search" >
-            <button mat-button  matSuffix mat-icon-button aria-label="Clear" >
-                
-                </button>
+            <button mat-button  matSuffix mat-icon-button aria-label="Clear" ></button>
           </mat-form-field>
       </div>
      <!--  -->
 
      <div fxLayout="row">
       <mat-toolbar class="avtar">
-          
-              
-         
           <span class="settings"></span>
           <button mat-icon-button [matMenuTriggerFor]="menu">
         <img class="img" src="../../../../assets/images/mm.png" alt="Avatar">
@@ -33,11 +28,11 @@
           <mat-menu #menu="matMenu" class="menu">
               <div class="userDetail">
                   <div fxLayout="row wrap" fxLayoutAlign="center">
-                      <img class="img inner" src="../../../../assets/images/DSC07399.JPG" alt="Avatar ">
+                      <img style="margin-left: 52px;" class="img inner" src="../../../../assets/images/DSC07399.JPG" alt="Avatar ">
                   </div>
-                  <div fxLayoutAlign="center" class="name">Omprakash</div>
-                  <div fxLayoutAlign="center" class="email">email</div>
-                  <div fxLayout="row wrap" fxLayoutAlign="center" class="button">
+                  <div style="text-align: center;" fxLayoutAlign="center" class="name">Omprakash</div>
+                  <div style="text-align: center;" fxLayoutAlign="center" class="email">Omkhawshi0@gmail.com</div>
+                  <div fxLayout="row wrap" fxLayoutAlign="center" class="button"style="text-align: center;">
                     <button mat-stroked-button type="submit " (click)="logout() ">Logout</button>
                   </div>
               </div>
@@ -67,11 +62,11 @@
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content class="container">
-  
+  <!-- Create Note -->
         <div class="note-create">
           <app-note-create  (messageEvent)="receiveMessage($event)" ></app-note-create>
         </div>
-      
+      <!-- Display Note -->
         <div class="out">
           <div class="display-notes">
             <app-note-display  (messageEvent)="receiveNoteMessage($event)" (moreEvent)="receiveMoreEvent($event)" *ngFor="let content of notes" [childMessage]="content" [id]="'D'+content.noteID" [Allnotes]="notes"></app-note-display>
@@ -92,6 +87,7 @@
 
   </div> 
   
+  <!-- Update Note -->
   <div class="note-update" *ngIf="updating" (loaded)="focusNote()">
     <!-- <app-note-update [updateNote]="updateNote" class="note-u"></app-note-update> -->
     <mat-card class="dis-note" >
@@ -102,11 +98,13 @@
           </div>
           <div id="upnote" name="upnotename" contenteditable="true" data-placeholder="Note" aria-multiline="true" role="textbox" class="un-n" tabindex="1" spellcheck="true" aria-label="Note" #upnote>{{ updateNote['description'] }}</div>
         </div>
+        <mat-label style="padding-left: 450px;">Edited Jul 15</mat-label>
+        
       <div class="nu-bottom" id="bottom" >
           <div class="nu-prop">
             <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
             <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
-           
+          <!-- Color Changes Static-->
             <button mat-icon-button [matMenuTriggerFor]="menu">
               <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'></div>
           </button>
@@ -114,31 +112,32 @@
       
             <div class="archive prop" role="button" matTooltip="Archive" matTooltipPosition='below'></div>
             <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
-            <div class="delete prop" (click)="deleteNote()" role="button" matTooltip="delete" matTooltipPosition='below'><mat-icon>delete</mat-icon></div>
-            
+            <div class="delete prop" (click)="deleteNote()" role="button" matTooltip="Delete" matTooltipPosition='below'><mat-icon><img src="../../../../assets/images/delete_black_24dp.svg"/></mat-icon></div>
+            <div class="undo prop" role="button" matTooltip="Undo" matTooltipPosition='below'></div>
+            <div class="redo prop" role="button" matTooltip="Redo" matTooltipPosition='below'></div>
           </div>
           <div class="close-note" (click)="UpdateNote()"> Close </div>
       </div>
   </mat-card>
  
-  <!-- Color -->
+  <!-- Color Changes Static-->
  
   
 <mat-menu #menu="matMenu" fxLayout="row">
-  <div fxLayoutAlign="space-around center" class="pallet">
+  <div fxLayoutAlign="space-around center" class="pallet" id = "leftbox">
       <div class="color-one" (click)="getColor('#fff')"></div>
       <div class="color-two" (click)="getColor('#f28b82')"></div>
       <div class="color-three" (click)="getColor('#fbbc04')"></div>
       <div class="color-four" (click)="getColor('#fff475')"></div>
   </div>
-  <div fxLayoutAlign="space-around center" class="pallet">
+  <div fxLayoutAlign="space-around center" class="pallet" id = "middlebox">
       <div class="color-five" (click)="getColor('#ccff90')"></div>
       <div class="color-six" (click)="getColor('#a7ffeb')"></div>
       <div class="color-seven" (click)="getColor('#cbf0f8')"></div>
       <div class="color-eight" (click)="getColor('#aecbfa')"></div>
   </div>
 
-  <div fxLayoutAlign="space-around center" class="pallet">
+  <div fxLayoutAlign="space-around center" class="pallet" id = "rightbox">
       <div class="color-nine" (click)="getColor('#d7aefb')"></div>
       <div class="color-ten" (click)="getColor('#fdcfe8')"></div>
       <div class="color-eleven" (click)="getColor('#e6c9a8')"></div>
@@ -147,4 +146,6 @@
 </mat-menu>
   
   </div>
+
+  <!-- Click outer bloc that time work and call update -->
   <div *ngIf="updating" (click)="UpdateNote()" id="block" class="block" #updateNote></div>
