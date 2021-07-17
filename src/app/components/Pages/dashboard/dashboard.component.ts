@@ -73,7 +73,9 @@ myDate=Date.now();
     this.route.navigate(['login']);
   }
 
-
+  Refresh(){
+    this.route.navigate(['Dashboard']);
+  }
 
   deleteNote()
   {
