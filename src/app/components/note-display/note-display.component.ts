@@ -9,7 +9,7 @@ import { NotesService } from 'src/app/services/NotesService/notes.service';
 })
 export class NoteDisplayComponent implements OnInit {
 
- 
+  public backgroundColor = 'white'; //default
 
   @Output() messageEvent = new EventEmitter<boolean>();
   @Output() moreEvent = new EventEmitter<boolean>();
@@ -56,6 +56,10 @@ export class NoteDisplayComponent implements OnInit {
     });
   }
 
+  // Color Change
+  updateBackgroundColor(colorCode: string) {
+    this.backgroundColor = colorCode;
+  }
   Delete(){
     // this.noteId = this.noteService.getId();
     // console.log("---->",this.noteId);

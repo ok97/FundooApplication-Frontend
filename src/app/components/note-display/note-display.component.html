@@ -1,5 +1,5 @@
 <div class="note">
-    <mat-card [id]="'note-'+childMessage.noteID" class="note-d note-before" ng-class="">
+    <mat-card class="card" [style.background-color]="backgroundColor" [id]="'note-'+childMessage.noteID" class="note-d note-before" ng-class="" >
         <div id="dntn" class="nd" (click)="updateNoteProcess()" >
             <div id="title" #title  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['title'] }}</div>
             <div id="description" #description  contenteditable="false" aria-multiline="true" role="textbox" class="t n1" dir="ltr">{{ childMessage['description'] }}</div>
@@ -18,7 +18,22 @@
                 <div class="reminder prop" role="button"  matTooltip="Remind me" matTooltipClass="prop-tip" matTooltipPosition='below'></div>
                 
                 <div class="back-img prop" role="button" matTooltip="Add image" matTooltipPosition='below'></div>
-                <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'></div>
+               
+                <div class="back-color prop" role="button" matTooltip="Change color" matTooltipPosition='below'><!-- Color change new code -->
+                    <button mat-icon-button [matMenuTriggerFor]="menu1">
+                        <mat-menu #menu1="matMenu">
+                            <button mat-menu-item class="colorpalette">
+                                <div class="colorpalette">
+                                    <app-setcolor (colorChanged)="updateBackgroundColor($event)"></app-setcolor>
+                                </div>
+                                <!-- <app-archivenote></app-archivenote> -->
+                            </button>
+                        </mat-menu>
+                        <!-- <mat-icon fontSet="material-icons-outlined">palette</mat-icon> -->
+                    </button></div>
+            
+                
+
                 <div class="archive prop" role="button" (click)="Archive()" matTooltip="Archive" matTooltipPosition='below'></div>
                 <div class="more-opn prop" role="button" matTooltip="More" matTooltipPosition='below'></div>
                 <div class="delete prop"  role="button"  matTooltip="Delete" matTooltipPosition='below'><mat-icon  (click)="Delete()" ><img src=".././../../assets/images/delete_black_24dp.svg"/></mat-icon></div>

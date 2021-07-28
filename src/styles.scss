@@ -19,3 +19,26 @@ $palletPurpl: #d7aefb;
 $palletPink: #fdcfe8;
 $palletLightOrange: #e6c9a8;
 $palletFaint: #e8eaed;
+
+
+
+
+
+
+
+
+.mat-menu-item {
+    
+    line-height: 20px;
+    height: 200px;
+}
+
+.mat-menu-content:not(:empty) {
+   width: 250px;
+   height: 150px;
+}
+
+button.mat-menu-item {
+    height: 130px;
+    width: 100%;
+}

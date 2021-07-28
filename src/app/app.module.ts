@@ -60,6 +60,7 @@ import { NoteCreateComponent } from './components/note-create/note-create.compon
 import { CollaboratorComponent } from './components/collaborator/collaborator.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { NoteDisplayComponent } from './components/note-display/note-display.component';
+import { SetcolorComponent } from './components/setcolor/setcolor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { NoteDisplayComponent } from './components/note-display/note-display.com
     CollaboratorComponent,
     ReminderComponent,
     NoteDisplayComponent,
+    SetcolorComponent,
   ],
   imports: [
     BrowserModule,

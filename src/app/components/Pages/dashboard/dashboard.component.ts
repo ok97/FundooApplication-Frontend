@@ -130,14 +130,13 @@ myDate=Date.now();
   }
 
 
-  // Date
-Date=Date.now();
+
   
   // Color Changes
   getColor(color:any) 
   {
     
-    let date: Date = new Date();
+   
   
     
     

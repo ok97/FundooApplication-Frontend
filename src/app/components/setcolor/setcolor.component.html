@@ -1,0 +1,8 @@
+<div class="color-container" [style.border-color]="borderColor">
+    <!-- null check -->
+      <div class="color-box" [style.background-color]="color?.colorCode"
+        [ngClass]="{'selected': color?.colorCode === borderColor}" *ngFor="let color of colors"
+        (click)="colorSelected(color?.colorCode)">
+      </div>
+    </div>
+  
